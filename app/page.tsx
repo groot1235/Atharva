@@ -8,7 +8,7 @@ export default function Home() {
       <div className="w-full lg:w-1/4 lg:max-w-[320px]">
         <Left />
       </div>
-      <div className="w-full lg:flex-1 mr-10 sm:mr-5 md:mr-10 max-w-full">
+      <div className="bg-[#1f1f1f] w-full max-w-full px-4 py-5 sm:px-6 rounded-xl overflow-hidden">
         <Right />
       </div>
 

@@ -83,29 +83,29 @@ const page = (props: Props) => {
 
                 <Separator />
 
-                <div className='m-8'>
+                <div className='my-6 mx-2 xl:m-8'>
 
                     {/* Email */}
-                    <div className='flex items-start gap-2'>
-                        <div className='border border-[#5c5c5c] p-2 rounded-md'>
-                            <Mail />
+                    <div className='flex items-center gap-3'>
+                        <div className='border border-[#5c5c5c] p-2 rounded-md shrink-0 flex items-center justify-center'>
+                            <Mail size={18} />
                         </div>
 
-                        <div>
+                        <div className='overflow-hidden'>
                             <p className='text-xs text-[#9c9c9c] uppercase'>Email</p>
-                            <p className='text-sm'>Atharvaludbe2@gmail.com</p>
+                            <p className='text-sm truncate' title='Atharvaludbe2@gmail.com'>Atharvaludbe2@gmail.com</p>
                         </div>
                     </div>
 
                     {/* Phone */}
-                    <div className='flex items-start gap-2 mt-4'>
-                        <div className='border border-[#5c5c5c] p-2 rounded-md'>
-                            <Smartphone />
+                    <div className='flex items-center gap-3 mt-4'>
+                        <div className='border border-[#5c5c5c] p-2 rounded-md shrink-0 flex items-center justify-center'>
+                            <Smartphone size={18} />
                         </div>
 
-                        <div>
+                        <div className='overflow-hidden'>
                             <p className='text-xs text-[#9c9c9c] uppercase'>Phone</p>
-                            <p className='text-sm'>+91 8692829055</p>
+                            <p className='text-sm truncate' title='+91 8692829055'>+91 8692829055</p>
                         </div>
                     </div>
 

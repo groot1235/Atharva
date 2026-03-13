@@ -36,7 +36,7 @@ const Page = (props: Props) => {
 
     return (
         <div>
-            <div className='bg-[#1f1f1f] m-6 p-4 rounded-xl w-full'>
+            <div className='bg-[#1f1f1f] m-6 p-4 rounded-xl'>
 
                 {/* Header */}
                 <div className="flex items-center justify-between">

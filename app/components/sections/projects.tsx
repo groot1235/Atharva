@@ -1,83 +1,115 @@
-import {
-    Timeline,
-    TimelineContent,
-    TimelineDate,
-    TimelineHeader,
-    TimelineIndicator,
-    TimelineItem,
-    TimelineSeparator,
-    TimelineTitle,
-} from "@/components/ui/timeline"
+"use client"
+import React from 'react'
+import { MapPin, Calendar, ExternalLink } from 'lucide-react'
+import Image from 'next/image'
 
-const roadmap = [
-    {
-        id: 1,
-        date: "2026",
-        title: "Blockly Redesign Project",
-        description:
-            "Redesigned the user interface and interaction flow of Google Blockly, focusing on improving usability, visual hierarchy, and beginner accessibility. Implemented a modern interface with enhanced block organization, clearer color coding, and intuitive drag-and-drop behavior to simplify learning visual programming. The redesign emphasizes responsive layouts, improved workspace navigation, and better onboarding for first-time users while maintaining Blockly’s core block-based programming functionality.",
-    },
-    {
-        id: 2,
-        date: "2025",
-        title: "Search and Rescue Drone",
-        description:
-            "Developed a search-and-rescue drone concept designed to locate disaster survivors using thermal imaging and computer vision. The system uses a thermal camera to detect human body heat and an AI model to automatically identify people in aerial footage. The goal is to assist rescue teams by quickly scanning inaccessible terrain, smoke-filled environments, or low-visibility disaster zones while reducing risk to human rescuers. A YOLO-based object detection model was trained and tested using thermal imagery datasets in Google Colab, enabling real-time detection of human figures from drone-captured video streams. The drone architecture integrates aerial robotics, thermal sensing, and embedded AI processing for faster survivor detection.",
-    },
-    {
-        id: 3,
-        date: "2024",
-        title: "Bird Sound Cartographer",
-        description:
-            "Built an acoustic localization system that detects and maps the direction of bird sounds in real time. Using a Raspberry Pi connected to a microphone array, the system captures environmental audio, processes it to estimate the sound source direction, and visualizes the detected location on a web-based map. A machine learning model was trained on bird call datasets to classify bird species from audio signals. The project combines signal processing, sound localization, and ML-based classification to help monitor wildlife activity and analyze bird populations.",
-    },
+const projects = [
+  {
+    id: 1,
+    title: "Blockly Redesign Project",
+    description: "Redesigned Google Blockly's user interface, focusing on beginner accessibility, clear workspace hierarchy, and responsive workspace navigation.",
+
+    src: "/blockly.png",
+    web: "https://blockly-kigq.vercel.app"
+  },
+  {
+    id: 2,
+    title: "Inte Interiors Portfolio",
+    description: "A premium interior design portfolio showcasing high-end visual galleries, elegant transitions, and a conversion-optimized consultation pipeline.",
+    src: "/inte.png",
+    web: "https://inte-fawn.vercel.app"
+  },
+  {
+    id: 3,
+    title: "Aura Skincare Brand",
+    description: "A clean, modern e-commerce skincare brand web experience focused on storytelling layouts, product education, and rich animations.",
+    src: "/aura.png",
+    web: "https://aura-nu-cyan.vercel.app"
+  },
+  {
+    id: 4,
+    title: "Centroid Agency",
+    description: "A modern creative growth agency website focused on premium branding, conversion-driven design, and scalable digital experiences for modern internet businesses.",
+
+    src: "/centroid.png",
+    web: "https://centroid-8knz.vercel.app/"
+  },
+  {
+    id: 5,
+    title: "Dental",
+    description: "A modern dental clinic website designed to deliver a clean, trustworthy, and patient-friendly digital experience, featuring online appointment booking, treatment showcases, and responsive healthcare-focused design.",
+
+    src: "/dentists.png",
+    web: "https://dentists-navy.vercel.app"
+  },
+  {
+    id: 6,
+    title: "Pilates Project",
+    description: "A modern pilates studio website focused on wellness, minimal design, and seamless class booking experiences, featuring responsive layouts, membership sections, and conversion-focused user interactions.",
+
+    src: "/pilates.png",
+    web: "https://pilates-brown-kappa.vercel.app"
+  }
 ]
 
 export function Projects() {
-    return (
-        <Timeline defaultValue={2} className="w-full">
+  return (
+    <div className="w-full py-8 border-0 select-none">
+      <div className="text-left mb-12 border-0">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          Projects
+        </h2>
+        <p className="text-zinc-500 dark:text-zinc-400 mt-3 text-base md:text-lg max-w-2xl">
+          A showcase of deliberate engineering, thoughtful design, and precise execution.
+        </p>
+      </div>
 
-            {roadmap.map((item) => (
-                <TimelineItem
-                    key={item.id}
-                    step={item.id}
-                    className="sm:group-data-[orientation=vertical]/timeline:ms-32"
-                >
-                    <TimelineHeader>
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 border-0">
+        {projects.map((proj) => (
+          <a
+            key={proj.id}
+            href={proj.web}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col gap-3 group bg-transparent border-0 cursor-pointer text-left"
+          >
+            {/* Chamfered Image Container */}
+            <div
+              className="w-full aspect-[16/10] relative overflow-hidden bg-zinc-100 dark:bg-zinc-800 transition-all duration-300 group-hover:shadow-md"
+              style={{
+                clipPath: 'polygon(12% 0px, 100% 0px, 100% 88%, 88% 100%, 0px 100%, 0px 12%)'
+              }}
+            >
+              <Image
+                src={proj.src}
+                alt={proj.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-w-768px) 100vw, 33vw"
+              />
+            </div>
 
-                        <TimelineSeparator />
+            {/* Title & Link Icon */}
+            <div className="flex items-center justify-between mt-2 border-0">
+              <h3 className="text-lg md:text-xl font-bold text-zinc-900 dark:text-white group-hover:text-yellow-500 dark:group-hover:text-yellow-400 transition-colors duration-200">
+                {proj.title}
+              </h3>
+              <ExternalLink size={16} className="text-zinc-400 dark:text-zinc-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 ml-2" />
+            </div>
 
-                        {/* Date */}
-                        <TimelineDate
-                            className="
-                            text-sm sm:text-md
-                            mb-1 sm:mb-0
-                            sm:group-data-[orientation=vertical]/timeline:absolute
-                            sm:group-data-[orientation=vertical]/timeline:-left-32
-                            sm:group-data-[orientation=vertical]/timeline:w-20
-                            sm:group-data-[orientation=vertical]/timeline:text-right
-                            "
-                        >
-                            {item.date}
-                        </TimelineDate>
+            {/* Description */}
+            <p className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed border-0 flex-1">
+              {proj.description}
+            </p>
 
-                        {/* Title */}
-                        <TimelineTitle className="font-bold text-sm sm:text-md">
-                            {item.title}
-                        </TimelineTitle>
+            {/* Metadata (Location & Date) */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] sm:text-xs font-semibold text-zinc-400 dark:text-zinc-500 border-0 mt-1">
 
-                        <TimelineIndicator />
-
-                    </TimelineHeader>
-
-                    {/* Description */}
-                    <TimelineContent className="text-sm sm:text-base text-justify leading-relaxed">
-                        {item.description}
-                    </TimelineContent>
-
-                </TimelineItem>
-            ))}
-
-        </Timeline>
-    )
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  )
 }
